@@ -167,3 +167,78 @@ Provides public marketplace data.
 - Role-based access control (User, Vendor, Admin) is implemented  
 - PostgreSQL is used as the database  
 - UUID is used as primary keys  
+---
+# 🚀⚙️ Urban Farming Platform Setup Instructions
+
+### 1️⃣ Clone Project
+```bash
+git clone <your-repo-url>
+cd maktech-backend
+npm install
+Create .env File
+```
+# Create a .env file in root directory:
+
+```bash
+PORT = 8080
+CLIENT_URL = "http://localhost:5173"
+
+DB_PORT=5432
+DB_PASSWORD="12345678"
+DB_NAME=*********
+DB_HOST=localhost
+DB_USER="postgres"
+
+COOKIE_EXPIRES_IN=7
+JWT_SECRET_KEY=************
+JWT_EXPIRES_IN=7d
+
+SMTP_SERVICE = gmail
+SMTP_MAIL = ******************
+SMTP_PASSWORD = ***************
+SMTP_HOST = smtp.gmail.com
+SMTP_PORT = 465
+
+GOOGLE_CLIENT_SECRET=***************************
+GOOGLE_CLIENT_ID=*******************************************
+BASE_URL=http://localhost:8080/api
+
+
+```
+
+# Create Database
+```bash
+ CREATE DATABASE maktech;
+```
+
+# Run Database Seed
+
+This will create all tables and initial setup:
+```bash
+npm run seed
+```
+# Start Server
+```bash
+npm run dev
+```
+# 📡 Server Info
+```bash
+http://localhost:8080
+```
+# 🧪 Example API Test
+POST /api/auth/signup
+
+# ⚡ Quick Run Flow
+```bash
+git clone <repo>
+npm install
+.env setup
+create database
+npm run seed
+npm run dev
+```
+# 🛠️ Notes
+- Make sure PostgreSQL is running
+- Use Gmail App Password for email service
+- Run seed before starting server
+- Check .env values if any error occurs
