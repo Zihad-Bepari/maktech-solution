@@ -1,0 +1,1363 @@
+{
+  "info": {
+    "_postman_id": "63b395ee-6f17-483c-b0aa-48216e152079",
+    "name": "maktech",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39656097",
+    "_collection_link": "https://go.postman.co/collection/39656097-63b395ee-6f17-483c-b0aa-48216e152079?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Zihad BEpari\",\r\n  \"email\": \"zihadbepari1139@gmail.com\",\r\n  \"password\": \"12345678\",\r\n  \"confirmPassword\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "signin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"zihadbepari1139@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "signin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgrt password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"zihadbepari1139@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/forget",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "forget"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": \"b1c2d3e4-xxxx-xxxx-xxxx-xxxxxxxx\",\r\n  \"otp\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signin/2fa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "signin",
+                "2fa"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "certification",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"certifying_agency\": \"Organic Bangladesh\",\r\n  \"certification_date\": \"2026-04-18\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/certifications",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "certifications"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get my certifications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/certifications",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "certifications"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Approved\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/certifications/d9fe265d-1ce4-42ec-9745-505fedb0d932/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "certifications",
+                "d9fe265d-1ce4-42ec-9745-505fedb0d932",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Vendor",
+      "item": [
+        {
+          "name": "apply vendor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"farm_name\": \"Green Valley Farm11\",\r\n  \"farm_location\": \"Dhaka, Bangladesh\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/vendor/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "vendor",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get vendor profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"farm_name\": \"Green Valley Farm11\",\r\n  \"farm_location\": \"Dhaka, Bangladesh\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/vendor/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "vendor",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update vendor profile",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"farm_name\": \"Updated Green Farm\",\r\n  \"farm_location\": \"Chattogram, Bangladesh\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/vendor/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "vendor",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Email-notification",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Zihad\",\r\n  \"email\": \"zihad12@gmail.com\",\r\n  \"username\": \"zihad12_reddit\",\r\n  \"password\": \"12345678\",\r\n  \"confirmPassword\": \"12345678\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/email-notification/on",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "email-notification",
+                "on"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2FA",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Zihad\",\r\n  \"email\": \"zihad12@gmail.com\",\r\n  \"username\": \"zihad12_reddit\",\r\n  \"password\": \"12345678\",\r\n  \"confirmPassword\": \"12345678\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/2FA/on",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "2FA",
+                "on"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update password",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"currentPassword\": \"12345678\",\r\n  \"newPassword\": \"123456789\",\r\n  \"confirmPassword\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete USer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Zihad\",\r\n  \"email\": \"zihad12@gmail.com\",\r\n  \"username\": \"zihad12_reddit\",\r\n  \"password\": \"12345678\",\r\n  \"confirmPassword\": \"12345678\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/delete",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"zihadbepari1139@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LogOut",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"zihadbepari1139@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Produce",
+      "item": [
+        {
+          "name": "create produce",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vendor_id\": \"uuid-of-vendor-profile\",\r\n  \"name\": \"Fresh Tomato\",\r\n  \"description\": \"Organic farm fresh tomato\",\r\n  \"price\": 50.5,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 100\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/produce/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "produce",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all produce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vendor_id\": \"uuid-of-vendor-profile\",\r\n  \"name\": \"Fresh Tomato\",\r\n  \"description\": \"Organic farm fresh tomato\",\r\n  \"price\": 50.5,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 100\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/produce/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "produce",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vendor_id\": \"uuid-of-vendor-profile\",\r\n  \"name\": \"Fresh Tomato\",\r\n  \"description\": \"Organic farm fresh tomato\",\r\n  \"price\": 50.5,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 100\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/produce/products/4cd3d74d-5d1f-4366-929c-c3fc6efd8437",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "produce",
+                "products",
+                "4cd3d74d-5d1f-4366-929c-c3fc6efd8437"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a single produce",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vendor_id\": \"uuid-of-vendor-profile\",\r\n  \"name\": \"Fresh Tomato\",\r\n  \"description\": \"Organic farm fresh tomato\",\r\n  \"price\": 50.5,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 100\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/produce/products/c835b3f0-9f05-4c84-841c-a6f59da32810",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "produce",
+                "products",
+                "c835b3f0-9f05-4c84-841c-a6f59da32810"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update single produce",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/produce/products/c835b3f0-9f05-4c84-841c-a6f59da32810",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "produce",
+                "products",
+                "c835b3f0-9f05-4c84-841c-a6f59da32810"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "Get all vendors",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/admin/vendors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "admin",
+                "vendors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get single vendor",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/admin/vendors/43ca3195-44b9-4a61-8541-2c2c88a07b6b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "admin",
+                "vendors",
+                "43ca3195-44b9-4a61-8541-2c2c88a07b6b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a single vendor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/admin/vendors/43ca3195-44b9-4a61-8541-2c2c88a07b6b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "admin",
+                "vendors",
+                "43ca3195-44b9-4a61-8541-2c2c88a07b6b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "approve vendor request",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/admin/vendors/43ca3195-44b9-4a61-8541-2c2c88a07b6b/approve",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "admin",
+                "vendors",
+                "43ca3195-44b9-4a61-8541-2c2c88a07b6b",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reject vendor request",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/admin/vendors/43ca3195-44b9-4a61-8541-2c2c88a07b6b/reject",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "admin",
+                "vendors",
+                "43ca3195-44b9-4a61-8541-2c2c88a07b6b",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "marketplace",
+      "item": [
+        {
+          "name": "Get all product",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/marketplace/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "marketplace",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get single product",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Tomato\",\r\n  \"description\": \"Better quality organic tomato\",\r\n  \"price\": 60,\r\n  \"category\": \"Vegetable\",\r\n  \"available_quantity\": 80\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/marketplace/products/d9fe265d-1ce4-42ec-9745-505fedb0d932",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "marketplace",
+                "products",
+                "d9fe265d-1ce4-42ec-9745-505fedb0d932"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all vendors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/marketplace/vendors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "marketplace",
+                "vendors"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "fram_booking",
+      "item": [
+        {
+          "name": "create booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"rental_space_id\": \"d9fe265d-1ce4-42ec-9745-505fedb0d932\",\r\n  \"start_date\": \"2026-04-20\",\r\n  \"end_date\": \"2026-04-25\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all booking",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"rental_space_id\": \"d9fe265d-1ce4-42ec-9745-505fedb0d932\",\r\n  \"start_date\": \"2026-04-20\",\r\n  \"end_date\": \"2026-04-25\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update bokking status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Approved\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings/d9fe265d-1ce4-42ec-9745-505fedb0d932/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings",
+                "d9fe265d-1ce4-42ec-9745-505fedb0d932",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancle booking",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Approved\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings/d9fe265d-1ce4-42ec-9745-505fedb0d932/cancel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings",
+                "d9fe265d-1ce4-42ec-9745-505fedb0d932",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "community",
+      "item": [
+        {
+          "name": "create a post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"post_content\": \"This is my first community post!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/community/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "community",
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get post",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"post_content\": \"This is my first community post!\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/community/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "community",
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"comment\": \"Nice post bro!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/community/posts/d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88/comment",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "community",
+                "posts",
+                "d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88",
+                "comment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "like",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"comment\": \"Nice post bro!\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/community/posts/d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88/like",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "community",
+                "posts",
+                "d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88",
+                "like"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "create order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"produce_id\": \"d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88\",\r\n  \"vendor_id\": \"d9fe265d-1ce4-42ec-9745-505fedb0d932\",\r\n  \"quantity\": 12,\r\n  \"total_price\": 150\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ger orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"produce_id\": \"d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88\",\r\n  \"vendor_id\": \"d9fe265d-1ce4-42ec-9745-505fedb0d932\",\r\n  \"quantity\": 12,\r\n  \"total_price\": 150\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get single order",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"produce_id\": \"d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88\",\r\n  \"vendor_id\": \"d9fe265d-1ce4-42ec-9745-505fedb0d932\",\r\n  \"quantity\": 12,\r\n  \"total_price\": 150\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders/d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                "d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update status",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Shipped\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders/d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                "d30f9632-fa50-4dd5-ab23-e0ad6fcdbd88",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Rental space",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\": \"Dhaka, Bangladesh\",\r\n  \"size\": \"500 sq ft\",\r\n  \"price\": 12000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-spaces",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-spaces"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\": \"Dhaka, Bangladesh\",\r\n  \"size\": \"500 sq ft\",\r\n  \"price\": 12000\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-spaces",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-spaces"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\": \"Dhaka, Bangladesh\",\r\n  \"size\": \"500 sq ft\",\r\n  \"price\": 12000\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-spaces/id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-spaces",
+                "id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\": \"Dhaka, Bangladesh\",\r\n  \"size\": \"500 sq ft\",\r\n  \"price\": 12000\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-spaces/id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-spaces",
+                "id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\": \"Chattogram, Bangladesh\",\r\n  \"size\": \"600 sq ft\",\r\n  \"price\": 15000,\r\n  \"availability\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-spaces/id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-spaces",
+                "id"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
