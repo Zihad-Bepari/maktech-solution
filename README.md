@@ -1,259 +1,169 @@
-# 🔐 Authentication Setup Guide (OAuth + Custom Auth)
+# 📦Urban Farming Platform Overview
 
-This repository contains setup guides for multiple authentication systems:
-
-* Social (Google, LinkedIn, GitHub)
-* Email & Password
-* Phone Number (OTP)
-
-You can expand this file step by step.
-
----
-# 📌 Email & Password Authentication
-
-## Overview
-
-The user will create an account using email and password. The password must always be stored in a hashed format.
-
+Urban Farming Platform is a role-based marketplace system built for agricultural products and farm-related services. The system is divided into three main roles: **Admin, Vendor, and Customer**. Each role has different permissions and responsibilities.
 
 ---
 
-## Step-by-Step
+# 👤 Customer Role
 
-### 1. Register API
+Customers are regular users of the system.
 
-* Input:
+- Can view products listed by vendors  
+- Can place orders for products  
+- Can browse available farm rental spaces  
+- Can book rental spaces for farming or usage  
+- Can view their order and booking history  
 
-  * Email
-  * Password
-
-### 2. Hash Password
-
-```
-bcrypt.hash(password, 10)
-```
-
-### 3. Store in Database
-
-* email
-* hashed password
+Customers mainly interact with products and rental services provided by vendors.
 
 ---
 
-### 4. Login
+# 🧑‍🌾 Vendor Role
 
-* Email + Password input
-* Compare:
+Vendors are the sellers and service providers in the system.
 
-```
-bcrypt.compare(password, user.password)
-```
+- Can create and manage their products  
+- Can list farm rental spaces for rent  
+- Can receive orders from customers  
+- Can manage booking requests for rental spaces  
+- Can sell products after admin approval  
+- Can offer rental services after admin approval  
 
----
-
-### 5. Generate Token (JWT)
-
-```
-jwt.sign({ userId }, SECRET, { expiresIn: "7d" })
-```
+Vendor data and services become visible in the system only after admin approval.
 
 ---
 
-# 📌 Google Authentication Setup (OAuth 2.0)
+# 👨‍💼 Admin Role
 
-# Overview
+Admin has full control over the entire system.
 
-Using Google Authentication (OAuth 2.0), a user can log in with their Google account.  
-The main benefits are:
+- Manages all users, vendors, and customers  
+- Approves or rejects vendor requests  
+- Approves or rejects products and rental spaces  
+- Handles all CRUD operations in the system  
+- Monitors orders, bookings, and platform activity  
+- Ensures system security and data integrity  
 
-- Users don’t need to remember a separate password  
-- Secure login system (handled by Google)  
-- Fast signup/login experience  
----
-## Step-by-Step
-
-### 1. Go to Google Cloud Console
-
-* https://console.cloud.google.com/
-* Login with your Google account
-
-### 2. Create / Select Project
-
-* Click **New Project**
-* Give a name → Create
-
-### 3. Enable API
-
-* APIs & Services → Library
-* Enable **Google Identity Services**
-
-### 4. Create Credentials
-
-* APIs & Services → Credentials
-* Click **Create Credentials**
-* Select **OAuth Client ID**
-
-### 5. OAuth Consent Screen
-
-* Select **External**
-* Fill:
-
-  * App Name
-  * Email
-* Save & continue
-
-### 6. Create OAuth Client
-
-* Application Type: **Web Application**
-
-**Redirect URI:**
-
-```
-http://localhost:8080
-```
-
-### 7. Save Credentials
-
-* Client ID
-* Client Secret
+Admin is the highest authority in the system.
 
 ---
 
-# 📌 GitHub Authentication Setup (OAuth 2.0)
+# 🔐 Auth Service
 
-## Overview
+Handles all authentication-related features.
 
-Using GitHub Authentication (OAuth 2.0), users can log in using their GitHub account.
-
----
-
-## Step-by-Step
-
-### 1. Go to GitHub Developer Settings
-
-Open:    https://github.com/settings/developers  
-
-Go to **OAuth Apps**
+- Registers new users  
+- Handles login authentication  
+- Sends OTP for forgot password  
+- Verifies OTP for account security  
+- Supports password reset functionality  
 
 ---
 
-### 2. Create OAuth App
+# 👤 User Service
 
-Click **“New OAuth App”**
+Manages user account settings and profile features.
 
-Fill the form:
-
-- **Application Name:** AuthForge (or your project name)  
-- **Homepage URL:**   http://localhost:8080/api/auth/github
-
-
-- **Authorization Callback URL:**  http://localhost:8080/api/auth/github/callback
-
+- Displays user profile  
+- Updates password  
+- Enables/disables email notifications  
+- Enables/disables 2FA  
+- Handles account deletion and logout  
 
 ---
 
-### 3. Get Credentials
+# 🧑‍🌾 Vendor Service
 
-After creating the app, you will get:
+Manages vendor application and profile system.
 
-- Client ID  
-- Client Secret (generate if not shown)
-
-
-⚠️ **Important:** Client Secret will only be shown once — make sure to copy and save it safely.
-
----
-
-# 📌 LinkedIn Authentication Setup (OAuth 2.0)
-
-## Overview
-
-Using LinkedIn Authentication (OAuth 2.0), users can log in using their LinkedIn account.
+- Allows users to apply as vendors  
+- Creates vendor profiles  
+- Updates vendor information  
+- Admin approves or rejects vendor requests  
 
 ---
 
-## Step-by-Step
+# 🏢 Certification Service
 
-### 1. Go to LinkedIn Developer Portal
+Manages farm/vendor certification process.
 
-Open:  https://www.linkedin.com/developers/
-
-Login with your LinkedIn account.
-
----
-
-### 2. Create App
-
-Click **“Create App”**
-
-Fill the form:
-
-- App Name: AuthForge (or your project name)
-- LinkedIn Page: (your company/page required)
-- Privacy Policy URL: (optional for localhost)
-- App Logo: upload (optional)
+- Vendors submit certification requests  
+- Displays certification list  
+- Admin approves or rejects certifications  
+- Tracks certification status  
 
 ---
 
-### 3. Configure OAuth Settings
+# 🛒 Produce (Product) Service
 
-Go to **Auth tab**
+Handles farm product management.
 
-Add Redirect URL: http://localhost:8080/api/auth/linkedin/callback
-
-
----
-
-### 4. Get Credentials
-
-After creating the app, you will get:
-
-- Client ID  
-- Client Secret  
-
-⚠️ Important:
-Client Secret will only be shown once — copy and store it safely.
+- Vendors create products  
+- Displays product list  
+- Shows single product details  
+- Allows product update and deletion  
+- Supports category and price filtering  
 
 ---
 
+# 📦 Order Service
 
-## 💡 OAuth Flow
+Manages ordering system between buyers and vendors.
 
-1. User clicks “Login with LinkedIn”
-2. Redirect to LinkedIn login
-3. User approves access
-4. Redirect back to:
+- Creates new orders  
+- Allows users to view their orders  
+- Displays order details  
+- Updates order status (Pending → Shipped, etc.)  
+
+---
+
+# 🏠 Rental Space Service
+
+Handles farm rental space management.
+
+- Vendors create rental spaces  
+- Displays available spaces  
+- Updates and deletes spaces  
+- Supports booking-related data  
 
 ---
 
-# 📂 Environment Variables
+# 🧑‍🤝‍🧑 Community Service
 
-```
-# Email Auth
-JWT_SECRET=
+Handles social/community features.
 
-# Google
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-
-#Github 
-GITHUB_CLIENT_ID=
-GITHUB_CLIENT_SECRET=
-
-#Linkedin
-LINKEDIN_CLIENT_ID=your_client_id
-LINKEDIN_CLIENT_SECRET=your_client_secret
-
-# Common
-REDIRECT_URI=http://localhost:8080
-```
+- Users can create posts  
+- Displays all posts  
+- Allows comments on posts  
+- Like/unlike toggle system for posts  
 
 ---
-# ✅ Notes
 
-* Never store passwords in plain text ❌
-* Keep OTP expiry short (for security 🔒)
-* The same redirect URI can be used (if handled in the backend)
-* Do not push the .env file to GitHub
+# 👨‍💼 Admin Service
+
+Provides system administration control.
+
+- View all vendors  
+- View single vendor details  
+- Approve or reject vendors  
+- Delete vendor accounts  
 
 ---
+
+# 🌐 Marketplace Service
+
+Provides public marketplace data.
+
+- Shows approved products  
+- Displays single product details  
+- Lists approved vendors  
+
+---
+
+# ⚠️ Notes
+
+- The project follows a modular architecture  
+- Many routes require authentication  
+- Role-based access control (User, Vendor, Admin) is implemented  
+- PostgreSQL is used as the database  
+- UUID is used as primary keys  
